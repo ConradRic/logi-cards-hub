@@ -17,9 +17,9 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142 76% 36%;
+    --primary: 214 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 142 100% 50%;
+    --primary-glow: 214 100% 60%;
 
     --secondary: 0 0% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 142 76% 36%;
+    --accent: 214 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,19 +35,20 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 36%;
+    --ring: 214 100% 50%;
 
     --radius: 1rem;
 
     /* Logistics theme colors */
-    --logistics-primary: 142 100% 50%;
-    --logistics-dark: 142 76% 36%;
-    --logistics-light: 142 50% 85%;
-    --logistics-background: 142 20% 96%;
+    --logistics-primary: 214 100% 50%;
+    --logistics-dark: 214 85% 45%;
+    --logistics-light: 214 50% 85%;
+    --logistics-background: 214 20% 96%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--logistics-primary)), hsl(var(--logistics-dark)));
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--logistics-light) / 0.05));
+    --gradient-background: linear-gradient(135deg, hsl(214 100% 97%), hsl(214 50% 95%));
     
     /* Shadows */
     --shadow-card: 0 4px 20px -4px hsl(var(--logistics-primary) / 0.1);
@@ -114,21 +115,27 @@ All colors MUST be HSL.
 
 @layer components {
   .logistics-card {
-    @apply relative bg-card rounded-3xl p-6 shadow-[var(--shadow-card)] 
+    @apply relative bg-primary rounded-2xl p-6 shadow-[var(--shadow-card)] 
            transition-[var(--transition-smooth)] cursor-pointer
-           hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02] 
-           hover:-translate-y-1 active:scale-[0.98];
-    background: var(--gradient-card);
+           hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.05] 
+           hover:-translate-y-2 active:scale-[0.98] text-white;
   }
   
   .logistics-hero-card {
-    @apply logistics-card bg-gradient-to-br from-primary to-primary/80 
-           text-primary-foreground hover:from-primary-glow hover:to-primary;
+    @apply logistics-card bg-gradient-to-br from-primary to-primary-glow;
   }
   
-  .logistics-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 
-           gap-6 p-6;
+  .organic-layout {
+    @apply relative min-h-screen overflow-hidden;
+    background: var(--gradient-background);
+  }
+  
+  .organic-shape {
+    @apply absolute rounded-full opacity-10;
+  }
+  
+  .cards-container {
+    @apply relative z-10 container mx-auto px-6 py-8;
   }
 }
 

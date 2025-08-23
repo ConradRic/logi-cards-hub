@@ -74,7 +74,7 @@ const Analise = () => {
                   <XAxis dataKey="mes" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="entregas" fill="hsl(142 76% 36%)" />
+                  <Bar dataKey="entregas" fill="hsl(214 100% 50%)" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -94,7 +94,7 @@ const Analise = () => {
                   <Line 
                     type="monotone" 
                     dataKey="faturamento" 
-                    stroke="hsl(142 76% 36%)" 
+                    stroke="hsl(214 100% 50%)" 
                     strokeWidth={3}
                   />
                 </LineChart>

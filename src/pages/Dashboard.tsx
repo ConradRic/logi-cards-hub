@@ -8,97 +8,119 @@ import {
   Calculator, 
   BarChart3 
 } from "lucide-react";
-import { LogisticsCard } from "@/components/LogisticsCard";
+import { OrganicCard } from "@/components/OrganicCard";
+import personWorking from "@/assets/person-working.png";
 
 const Dashboard = () => {
   const modules = [
     {
       title: "TMS",
-      description: "Sistema de Gestão de Transporte",
+      description: "Sistema de Gestão",
       icon: Truck,
       route: "/tms",
-      variant: "hero" as const
+      size: "large" as const,
+      position: { top: "15%", left: "40%" }
     },
     {
       title: "Veículos",
-      description: "Cadastro e controle de veículos",
+      description: "Cadastro de veículos",
       icon: Car,
-      route: "/veiculos"
+      route: "/veiculos",
+      size: "medium" as const,
+      position: { top: "35%", left: "15%" }
     },
     {
       title: "Motoristas",
       description: "Gestão de motoristas",
       icon: User,
-      route: "/motoristas"
+      route: "/motoristas",
+      size: "small" as const,
+      position: { top: "25%", right: "20%" }
     },
     {
       title: "Produtos",
       description: "Cadastro de produtos",
       icon: Package,
-      route: "/produtos"
+      route: "/produtos",
+      size: "medium" as const,
+      position: { top: "10%", left: "65%" }
     },
     {
       title: "Armazém",
-      description: "Controle de estoque",
+      description: "Controle de estoque", 
       icon: Warehouse,
-      route: "/armazem"
+      route: "/armazem",
+      size: "medium" as const,
+      position: { top: "45%", right: "15%" }
     },
     {
-      title: "Gestão de Frota",
-      description: "Monitoramento da frota",
+      title: "Frota",
+      description: "Gestão de frota",
       icon: Settings,
-      route: "/frota"
+      route: "/frota",
+      size: "small" as const,
+      position: { top: "65%", left: "25%" }
     },
     {
       title: "Calculadora",
       description: "Cálculo de fretes",
       icon: Calculator,
-      route: "/calculadora"
+      route: "/calculadora",
+      size: "medium" as const,
+      position: { top: "60%", right: "35%" }
     },
     {
       title: "Análise",
-      description: "Relatórios e gráficos",
+      description: "Relatórios",
       icon: BarChart3,
-      route: "/analise"
+      route: "/analise",
+      size: "small" as const,
+      position: { top: "80%", right: "10%" }
     }
   ];
 
   return (
-    <div className="min-h-screen bg-logistics-background">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-glow opacity-10" />
-        <div className="relative container mx-auto px-6 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-primary mb-4">
-              SOFTWARES DE LOGÍSTICA
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Plataforma completa para gestão logística e controle de frotas
-            </p>
-          </div>
-        </div>
+    <div className="organic-layout">
+      {/* Organic Background Shapes */}
+      <div className="organic-shape w-96 h-96 bg-primary top-0 -right-20" />
+      <div className="organic-shape w-64 h-64 bg-primary-glow -top-10 left-1/4" />
+      <div className="organic-shape w-80 h-80 bg-primary bottom-0 -left-16" />
+      <div className="organic-shape w-48 h-48 bg-primary-glow bottom-1/4 right-1/3" />
+
+      {/* Header */}
+      <div className="relative z-20 text-center pt-16 pb-8">
+        <h1 className="text-6xl font-bold text-primary mb-4">
+          SOFTWARES DE LOGÍSTICA
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Plataforma completa para gestão logística e controle de frotas
+        </p>
       </div>
 
-      {/* Cards Grid */}
-      <div className="container mx-auto px-6 pb-12">
-        <div className="logistics-grid">
+      {/* Cards Container */}
+      <div className="cards-container">
+        <div className="relative h-[600px]">
           {modules.map((module, index) => (
-            <LogisticsCard
+            <OrganicCard
               key={index}
               title={module.title}
               description={module.description}
               icon={module.icon}
               route={module.route}
-              variant={module.variant}
+              size={module.size}
+              position={module.position}
             />
           ))}
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="fixed bottom-10 right-10 opacity-10 pointer-events-none">
-        <Truck size={120} className="text-primary" />
+      {/* Person Illustration */}
+      <div className="absolute bottom-20 left-20 z-20">
+        <img 
+          src={personWorking} 
+          alt="Professional working on logistics software" 
+          className="w-72 h-72 object-contain"
+        />
       </div>
     </div>
   );
