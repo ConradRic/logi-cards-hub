@@ -19,7 +19,7 @@ const Dashboard = () => {
       icon: Truck,
       route: "/tms",
       size: "large" as const,
-      position: { top: "15%", left: "40%" }
+      position: { top: "10%", right: "15%" }
     },
     {
       title: "Veículos",
@@ -27,7 +27,7 @@ const Dashboard = () => {
       icon: Car,
       route: "/veiculos",
       size: "medium" as const,
-      position: { top: "35%", left: "15%" }
+      position: { top: "20%", right: "35%" }
     },
     {
       title: "Motoristas",
@@ -35,7 +35,7 @@ const Dashboard = () => {
       icon: User,
       route: "/motoristas",
       size: "small" as const,
-      position: { top: "25%", right: "20%" }
+      position: { top: "35%", right: "25%" }
     },
     {
       title: "Produtos",
@@ -43,7 +43,7 @@ const Dashboard = () => {
       icon: Package,
       route: "/produtos",
       size: "medium" as const,
-      position: { top: "10%", left: "65%" }
+      position: { top: "40%", right: "45%" }
     },
     {
       title: "Armazém",
@@ -51,7 +51,7 @@ const Dashboard = () => {
       icon: Warehouse,
       route: "/armazem",
       size: "medium" as const,
-      position: { top: "45%", right: "15%" }
+      position: { top: "50%", right: "15%" }
     },
     {
       title: "Frota",
@@ -59,7 +59,7 @@ const Dashboard = () => {
       icon: Settings,
       route: "/frota",
       size: "small" as const,
-      position: { top: "65%", left: "25%" }
+      position: { top: "60%", right: "35%" }
     },
     {
       title: "Calculadora",
@@ -67,7 +67,7 @@ const Dashboard = () => {
       icon: Calculator,
       route: "/calculadora",
       size: "medium" as const,
-      position: { top: "60%", right: "35%" }
+      position: { top: "65%", right: "25%" }
     },
     {
       title: "Análise",
@@ -75,17 +75,17 @@ const Dashboard = () => {
       icon: BarChart3,
       route: "/analise",
       size: "small" as const,
-      position: { top: "80%", right: "10%" }
+      position: { top: "75%", right: "45%" }
     }
   ];
 
   return (
     <div className="organic-layout">
       {/* Organic Background Shapes */}
-      <div className="organic-shape w-96 h-96 bg-primary top-0 -right-20" />
-      <div className="organic-shape w-64 h-64 bg-primary-glow -top-10 left-1/4" />
-      <div className="organic-shape w-80 h-80 bg-primary bottom-0 -left-16" />
-      <div className="organic-shape w-48 h-48 bg-primary-glow bottom-1/4 right-1/3" />
+      <div className="organic-shape w-96 h-96 bg-primary top-0 -right-32" />
+      <div className="organic-shape w-64 h-64 bg-primary-glow -top-10 right-1/3" />
+      <div className="organic-shape w-80 h-80 bg-primary bottom-0 -left-20" />
+      <div className="organic-shape w-52 h-52 bg-primary-glow bottom-1/4 left-1/4" />
 
       {/* Header */}
       <div className="relative z-20 text-center pt-16 pb-8">
@@ -115,11 +115,11 @@ const Dashboard = () => {
       </div>
 
       {/* Person Illustration */}
-      <div className="absolute bottom-20 left-20 z-20">
+      <div className="absolute bottom-16 left-8 z-20">
         <img 
           src={personWorking} 
           alt="Professional working on logistics software" 
-          className="w-72 h-72 object-contain"
+          className="w-80 h-80 object-contain"
         />
       </div>
     </div>
