@@ -13,6 +13,8 @@ interface OrganicCardProps {
     right?: string;
     bottom?: string;
   };
+  onHover?: (title: string, description: string) => void;
+  onLeave?: () => void;
 }
 
 export const OrganicCard = ({ 
@@ -21,7 +23,9 @@ export const OrganicCard = ({
   icon: Icon, 
   route,
   size = "medium",
-  position
+  position,
+  onHover,
+  onLeave
 }: OrganicCardProps) => {
   const navigate = useNavigate();
 
@@ -29,36 +33,34 @@ export const OrganicCard = ({
     navigate(route);
   };
 
+  const handleMouseEnter = () => {
+    onHover?.(title, description);
+  };
+
+  const handleMouseLeave = () => {
+    onLeave?.();
+  };
+
   const sizeClasses = {
-    small: "w-48 h-36",
-    medium: "w-56 h-44",
-    large: "w-64 h-52"
+    small: "w-16 h-16",
+    medium: "w-20 h-20", 
+    large: "w-24 h-24"
   };
 
   return (
     <div 
       className={`
         absolute logistics-card ${sizeClasses[size]}
-        flex flex-col items-center justify-center text-center space-y-3
+        flex items-center justify-center cursor-pointer
+        transition-all duration-300 hover:scale-110
       `}
       style={position}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
-        <Icon size={size === "large" ? 36 : size === "small" ? 24 : 30} className="text-white" />
-      </div>
-      
-      <div className="space-y-1">
-        <h3 className={`font-semibold text-white ${
-          size === "large" ? "text-lg" : size === "small" ? "text-sm" : "text-base"
-        }`}>
-          {title}
-        </h3>
-        <p className={`text-white/80 ${
-          size === "large" ? "text-sm" : "text-xs"
-        }`}>
-          {description}
-        </p>
+      <div className="p-4 bg-white/20 backdrop-blur-sm rounded-xl w-full h-full flex items-center justify-center">
+        <Icon size={size === "large" ? 32 : size === "small" ? 20 : 24} className="text-white" />
       </div>
     </div>
   );

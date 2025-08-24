@@ -8,74 +8,100 @@ import {
   Calculator, 
   BarChart3 
 } from "lucide-react";
+import { useState } from "react";
 import { OrganicCard } from "@/components/OrganicCard";
 import personWorking from "@/assets/person-working.png";
 
 const Dashboard = () => {
+  const [speechBubble, setSpeechBubble] = useState<{
+    title: string;
+    description: string;
+    visible: boolean;
+  }>({
+    title: "",
+    description: "",
+    visible: false
+  });
+
+  const handleCardHover = (title: string, description: string) => {
+    setSpeechBubble({
+      title,
+      description,
+      visible: true
+    });
+  };
+
+  const handleCardLeave = () => {
+    setSpeechBubble(prev => ({
+      ...prev,
+      visible: false
+    }));
+  };
+
   const modules = [
     {
       title: "TMS",
-      description: "Sistema de Gestão",
+      description: "Sistema de Gestão de Transporte",
       icon: Truck,
       route: "/tms",
       size: "large" as const,
-      position: { top: "10%", right: "15%" }
+      position: { top: "15%", right: "10%" }
     },
     {
       title: "Veículos",
-      description: "Cadastro de veículos",
+      description: "Cadastro e Controle de Veículos",
       icon: Car,
       route: "/veiculos",
       size: "medium" as const,
-      position: { top: "20%", right: "35%" }
+      position: { top: "15%", right: "25%" }
     },
     {
       title: "Motoristas",
-      description: "Gestão de motoristas",
+      description: "Gestão de Motoristas",
       icon: User,
       route: "/motoristas",
       size: "small" as const,
-      position: { top: "35%", right: "25%" }
+      position: { top: "35%", right: "10%" }
     },
     {
       title: "Produtos",
-      description: "Cadastro de produtos",
+      description: "Cadastro de Produtos",
       icon: Package,
       route: "/produtos",
       size: "medium" as const,
-      position: { top: "40%", right: "45%" }
+      position: { top: "35%", right: "25%" }
     },
     {
       title: "Armazém",
-      description: "Controle de estoque", 
+      description: "Controle de Estoque e Armazém", 
       icon: Warehouse,
       route: "/armazem",
       size: "medium" as const,
-      position: { top: "50%", right: "15%" }
+      position: { top: "55%", right: "10%" }
     },
     {
       title: "Frota",
-      description: "Gestão de frota",
+      description: "Gestão Completa de Frota",
       icon: Settings,
       route: "/frota",
       size: "small" as const,
-      position: { top: "60%", right: "35%" }
+      position: { top: "55%", right: "25%" }
     },
     {
       title: "Calculadora",
-      description: "Cálculo de fretes",
+      description: "Cálculo de Fretes e Custos",
       icon: Calculator,
       route: "/calculadora",
       size: "medium" as const,
-      position: { top: "65%", right: "25%" }
+      position: { top: "75%", right: "10%" }
     },
     {
       title: "Análise",
-      description: "Relatórios",
+      description: "Relatórios e Gráficos",
       icon: BarChart3,
       route: "/analise",
       size: "small" as const,
-      position: { top: "75%", right: "45%" }
+      position: { top: "75%", right: "25%" }
     }
   ];
 
@@ -83,9 +109,9 @@ const Dashboard = () => {
     <div className="organic-layout">
       {/* Organic Background Shapes */}
       <div className="organic-shape w-96 h-96 bg-primary top-0 -right-32" />
-      <div className="organic-shape w-64 h-64 bg-primary-glow -top-10 right-1/3" />
+      <div className="organic-shape w-64 h-64 bg-primary-glow -top-10 right-1/2" />
       <div className="organic-shape w-80 h-80 bg-primary bottom-0 -left-20" />
-      <div className="organic-shape w-52 h-52 bg-primary-glow bottom-1/4 left-1/4" />
+      <div className="organic-shape w-52 h-52 bg-primary-glow bottom-1/4 left-1/3" />
 
       {/* Header */}
       <div className="relative z-20 text-center pt-16 pb-8">
@@ -109,6 +135,8 @@ const Dashboard = () => {
               route={module.route}
               size={module.size}
               position={module.position}
+              onHover={handleCardHover}
+              onLeave={handleCardLeave}
             />
           ))}
         </div>
@@ -121,6 +149,17 @@ const Dashboard = () => {
           alt="Professional working on logistics software" 
           className="w-80 h-80 object-contain"
         />
+        
+        {/* Speech Bubble */}
+        {speechBubble.visible && (
+          <div className="absolute -top-20 left-24 z-30 animate-fade-in">
+            <div className="bg-white rounded-lg shadow-lg px-4 py-3 max-w-xs relative">
+              <div className="absolute bottom-0 left-8 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white transform translate-y-full"></div>
+              <h4 className="font-semibold text-primary text-sm mb-1">{speechBubble.title}</h4>
+              <p className="text-xs text-gray-600">{speechBubble.description}</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
