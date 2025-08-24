@@ -39,69 +39,50 @@ const Dashboard = () => {
   };
 
   const modules = [
-    {
-      title: "TMS",
-      description: "Sistema de Gestão de Transporte",
-      icon: Truck,
-      route: "/tms",
-      size: "large" as const,
-      position: { top: "15%", right: "10%" }
-    },
+    // Primeira fileira
     {
       title: "Veículos",
       description: "Cadastro e Controle de Veículos",
       icon: Car,
-      route: "/veiculos",
-      size: "medium" as const,
-      position: { top: "15%", right: "25%" }
+      route: "/veiculos"
     },
     {
       title: "Motoristas",
       description: "Gestão de Motoristas",
       icon: User,
-      route: "/motoristas",
-      size: "small" as const,
-      position: { top: "35%", right: "10%" }
+      route: "/motoristas"
     },
     {
       title: "Produtos",
       description: "Cadastro de Produtos",
       icon: Package,
-      route: "/produtos",
-      size: "medium" as const,
-      position: { top: "35%", right: "25%" }
+      route: "/produtos"
     },
+    // Segunda fileira
     {
       title: "Armazém",
       description: "Controle de Estoque e Armazém", 
       icon: Warehouse,
-      route: "/armazem",
-      size: "medium" as const,
-      position: { top: "55%", right: "10%" }
+      route: "/armazem"
     },
     {
       title: "Frota",
       description: "Gestão Completa de Frota",
-      icon: Settings,
-      route: "/frota",
-      size: "small" as const,
-      position: { top: "55%", right: "25%" }
+      icon: Truck,
+      route: "/frota"
     },
     {
       title: "Calculadora",
       description: "Cálculo de Fretes e Custos",
       icon: Calculator,
-      route: "/calculadora",
-      size: "medium" as const,
-      position: { top: "75%", right: "10%" }
+      route: "/calculadora"
     },
+    // Terceira fileira
     {
       title: "Análise",
       description: "Relatórios e Gráficos",
       icon: BarChart3,
-      route: "/analise",
-      size: "small" as const,
-      position: { top: "75%", right: "25%" }
+      route: "/analise"
     }
   ];
 
@@ -124,17 +105,44 @@ const Dashboard = () => {
       </div>
 
       {/* Cards Container */}
-      <div className="cards-container">
-        <div className="relative h-[600px]">
-          {modules.map((module, index) => (
+      <div className="relative z-20 max-w-4xl mx-auto px-8">
+        <div className="grid grid-cols-3 gap-8 mb-8">
+          {/* Primeira fileira - 3 cards */}
+          {modules.slice(0, 3).map((module, index) => (
             <OrganicCard
               key={index}
               title={module.title}
               description={module.description}
               icon={module.icon}
               route={module.route}
-              size={module.size}
-              position={module.position}
+              onHover={handleCardHover}
+              onLeave={handleCardLeave}
+            />
+          ))}
+        </div>
+        <div className="grid grid-cols-3 gap-8 mb-8">
+          {/* Segunda fileira - 3 cards */}
+          {modules.slice(3, 6).map((module, index) => (
+            <OrganicCard
+              key={index + 3}
+              title={module.title}
+              description={module.description}
+              icon={module.icon}
+              route={module.route}
+              onHover={handleCardHover}
+              onLeave={handleCardLeave}
+            />
+          ))}
+        </div>
+        <div className="flex justify-center">
+          {/* Terceira fileira - 1 card centralizado */}
+          {modules.slice(6, 7).map((module, index) => (
+            <OrganicCard
+              key={index + 6}
+              title={module.title}
+              description={module.description}
+              icon={module.icon}
+              route={module.route}
               onHover={handleCardHover}
               onLeave={handleCardLeave}
             />
