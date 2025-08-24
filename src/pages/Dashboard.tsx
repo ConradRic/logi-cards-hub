@@ -18,9 +18,9 @@ const Dashboard = () => {
     description: string;
     visible: boolean;
   }>({
-    title: "",
-    description: "",
-    visible: false
+    title: "Olá, eu sou o Nexus",
+    description: "seu instrutor no sistema",
+    visible: true
   });
 
   const handleCardHover = (title: string, description: string) => {
@@ -32,10 +32,11 @@ const Dashboard = () => {
   };
 
   const handleCardLeave = () => {
-    setSpeechBubble(prev => ({
-      ...prev,
-      visible: false
-    }));
+    setSpeechBubble({
+      title: "Olá, eu sou o Nexus",
+      description: "seu instrutor no sistema",
+      visible: true
+    });
   };
 
   const modules = [
@@ -105,10 +106,10 @@ const Dashboard = () => {
       </div>
 
       {/* Cards Container - Right Side */}
-      <div className="absolute right-16 top-1/2 transform -translate-y-1/2 z-20">
+      <div className="absolute right-32 top-1/2 transform -translate-y-1/2 z-20">
         <div className="space-y-8">
           {/* Primeira fileira - 3 cards */}
-          <div className="flex gap-6">
+          <div className="flex gap-8">
             {modules.slice(0, 3).map((module, index) => (
               <OrganicCard
                 key={index}
@@ -123,7 +124,7 @@ const Dashboard = () => {
           </div>
           
           {/* Segunda fileira - 3 cards */}
-          <div className="flex gap-6">
+          <div className="flex gap-8">
             {modules.slice(3, 6).map((module, index) => (
               <OrganicCard
                 key={index + 3}
