@@ -104,49 +104,53 @@ const Dashboard = () => {
         </p>
       </div>
 
-      {/* Cards Container */}
-      <div className="relative z-20 max-w-4xl mx-auto px-8">
-        <div className="grid grid-cols-3 gap-8 mb-8">
+      {/* Cards Container - Right Side */}
+      <div className="absolute right-16 top-1/2 transform -translate-y-1/2 z-20">
+        <div className="space-y-8">
           {/* Primeira fileira - 3 cards */}
-          {modules.slice(0, 3).map((module, index) => (
-            <OrganicCard
-              key={index}
-              title={module.title}
-              description={module.description}
-              icon={module.icon}
-              route={module.route}
-              onHover={handleCardHover}
-              onLeave={handleCardLeave}
-            />
-          ))}
-        </div>
-        <div className="grid grid-cols-3 gap-8 mb-8">
+          <div className="flex gap-6">
+            {modules.slice(0, 3).map((module, index) => (
+              <OrganicCard
+                key={index}
+                title={module.title}
+                description={module.description}
+                icon={module.icon}
+                route={module.route}
+                onHover={handleCardHover}
+                onLeave={handleCardLeave}
+              />
+            ))}
+          </div>
+          
           {/* Segunda fileira - 3 cards */}
-          {modules.slice(3, 6).map((module, index) => (
-            <OrganicCard
-              key={index + 3}
-              title={module.title}
-              description={module.description}
-              icon={module.icon}
-              route={module.route}
-              onHover={handleCardHover}
-              onLeave={handleCardLeave}
-            />
-          ))}
-        </div>
-        <div className="flex justify-center">
+          <div className="flex gap-6">
+            {modules.slice(3, 6).map((module, index) => (
+              <OrganicCard
+                key={index + 3}
+                title={module.title}
+                description={module.description}
+                icon={module.icon}
+                route={module.route}
+                onHover={handleCardHover}
+                onLeave={handleCardLeave}
+              />
+            ))}
+          </div>
+          
           {/* Terceira fileira - 1 card centralizado */}
-          {modules.slice(6, 7).map((module, index) => (
-            <OrganicCard
-              key={index + 6}
-              title={module.title}
-              description={module.description}
-              icon={module.icon}
-              route={module.route}
-              onHover={handleCardHover}
-              onLeave={handleCardLeave}
-            />
-          ))}
+          <div className="flex justify-center">
+            {modules.slice(6, 7).map((module, index) => (
+              <OrganicCard
+                key={index + 6}
+                title={module.title}
+                description={module.description}
+                icon={module.icon}
+                route={module.route}
+                onHover={handleCardHover}
+                onLeave={handleCardLeave}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

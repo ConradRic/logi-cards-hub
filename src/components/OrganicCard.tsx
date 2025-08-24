@@ -34,13 +34,13 @@ export const OrganicCard = ({
 
   return (
     <div 
-      className="logistics-card w-24 h-24 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110"
+      className="w-20 h-20 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110"
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div className="p-4 bg-white/20 backdrop-blur-sm rounded-xl w-full h-full flex items-center justify-center">
-        <Icon size={28} className="text-white" />
+        <Icon size={24} className="text-white" />
       </div>
     </div>
   );
