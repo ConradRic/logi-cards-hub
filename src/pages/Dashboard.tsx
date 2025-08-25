@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { OrganicCard } from "@/components/OrganicCard";
-import personWorking from "@/assets/person-working.png";
+import logisticsRobot from "@/assets/logistics-robot.png";
 
 const Dashboard = () => {
   const [speechBubble, setSpeechBubble] = useState<{
@@ -158,8 +158,8 @@ const Dashboard = () => {
       {/* Person Illustration */}
       <div className="absolute bottom-16 left-8 z-20">
         <img 
-          src={personWorking} 
-          alt="Professional working on logistics software" 
+          src={logisticsRobot} 
+          alt="Nexus - Logistics Robot Assistant with safety equipment" 
           className="w-80 h-80 object-contain"
         />
         
