@@ -106,7 +106,7 @@ const Dashboard = () => {
       </div>
 
       {/* Cards Container - Right Side */}
-      <div className="absolute right-32 top-1/2 transform -translate-y-16 z-20">
+      <div className="absolute right-32 top-1/2 transform -translate-y-32 z-20">
         <div className="space-y-8">
           {/* Primeira fileira - 3 cards */}
           <div className="flex gap-8">
