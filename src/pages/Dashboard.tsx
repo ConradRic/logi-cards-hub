@@ -89,18 +89,17 @@ const Dashboard = () => {
 
   return (
     <div className="organic-layout">
-      {/* Organic Background Shapes */}
-      <div className="organic-shape w-96 h-96 bg-primary top-0 -right-32" />
-      <div className="organic-shape w-64 h-64 bg-primary-glow -top-10 right-1/2" />
-      <div className="organic-shape w-80 h-80 bg-primary bottom-0 -left-20" />
-      <div className="organic-shape w-52 h-52 bg-primary-glow bottom-1/4 left-1/3" />
+      {/* Wave Borders */}
+      <div className="wave-border wave-top" />
+      <div className="wave-border wave-left" />
+      <div className="wave-border wave-right" />
 
       {/* Header */}
       <div className="relative z-20 text-center pt-16 pb-8">
-        <h1 className="text-6xl font-bold text-primary mb-4">
+        <h1 className="text-4xl font-bold text-primary mb-3">
           Transport Management System - TMS
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Plataforma completa para gestão logística e controle de frotas, armazém e funcionários !!!
         </p>
       </div>

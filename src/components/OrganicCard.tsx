@@ -39,8 +39,8 @@ export const OrganicCard = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="p-4 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-xl w-full h-full flex items-center justify-center">
-        <Icon size={32} className="text-primary" />
+      <div className="p-4 bg-primary backdrop-blur-sm border border-primary rounded-xl w-full h-full flex items-center justify-center">
+        <Icon size={32} className="text-white" />
       </div>
     </div>
   );
