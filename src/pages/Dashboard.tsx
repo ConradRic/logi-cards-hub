@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { OrganicCard } from "@/components/OrganicCard";
-import logisticsRobot from "@/assets/logistics-robot.png";
+import logisticsRobot from "@/assets/logistics-robot.png.png";
 
 const Dashboard = () => {
   const [speechBubble, setSpeechBubble] = useState<{
@@ -18,8 +18,8 @@ const Dashboard = () => {
     description: string;
     visible: boolean;
   }>({
-    title: "Olá, eu sou o Nexus",
-    description: "seu instrutor no sistema",
+    title: "Olá estudante, me chamo Nexus 🤖",
+    description: "Seu guia aqui pelo TMS",
     visible: true
   });
 
@@ -33,8 +33,8 @@ const Dashboard = () => {
 
   const handleCardLeave = () => {
     setSpeechBubble({
-      title: "Olá, eu sou o Nexus",
-      description: "seu instrutor no sistema",
+      title: "Quais processos iremos trabalhar hoje ?",
+      description: "Seus calculos e analise mais rapidos e otimizados 😁",
       visible: true
     });
   };
@@ -42,46 +42,46 @@ const Dashboard = () => {
   const modules = [
     // Primeira fileira
     {
-      title: "Veículos",
-      description: "Cadastro e Controle de Veículos",
+      title: "Cadastro de Veículos 🚚",
+      description: "Aqui você cadastra cada um de seus veículos !!!",
       icon: Car,
       route: "/veiculos"
     },
     {
-      title: "Motoristas",
-      description: "Gestão de Motoristas",
+      title: "Cadastrosde Motoristas 🪪",
+      description: "Aqui você adiciona cada dado de seus motoristas !!!",
       icon: User,
       route: "/motoristas"
     },
     {
-      title: "Produtos",
-      description: "Cadastro de Produtos",
+      title: "Cadastro de Produtos 📦",
+      description: "Aqui você adiciona cada produto de seu estoque !!!",
       icon: Package,
       route: "/produtos"
     },
     // Segunda fileira
     {
-      title: "Armazém",
-      description: "Controle de Estoque e Armazém", 
+      title: "Armazém 👷",
+      description: "Aqui você monitora o seu estoque de produtos !!!", 
       icon: Warehouse,
       route: "/armazem"
     },
     {
-      title: "Frota",
-      description: "Gestão Completa de Frota",
+      title: "Frota 🚘",
+      description: "Aqui você administra a sua frota completa de veículos !!!",
       icon: Truck,
       route: "/frota"
     },
     {
-      title: "Calculadora",
-      description: "Cálculo de Fretes e Custos",
+      title: "Calculadora 🧮",
+      description: "Aqui você consegue realizar cada cálculo necessário !!!",
       icon: Calculator,
       route: "/calculadora"
     },
     // Terceira fileira
     {
-      title: "Análise",
-      description: "Relatórios e Gráficos",
+      title: "Análise de Resultados 📈",
+      description: "Aqui você pode analisar seus ganhos e demais dados da sua empresa !!!",
       icon: BarChart3,
       route: "/analise"
     }
@@ -98,10 +98,10 @@ const Dashboard = () => {
       {/* Header */}
       <div className="relative z-20 text-center pt-16 pb-8">
         <h1 className="text-6xl font-bold text-primary mb-4">
-          SOFTWARES DE LOGÍSTICA
+          Transport Management System - TMS
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Plataforma completa para gestão logística e controle de frotas
+          Plataforma completa para gestão logística e controle de frotas, armazém e funcionários !!!
         </p>
       </div>
 
