@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { OrganicCard } from "@/components/OrganicCard";
-import logisticsRobot from "@/assets/logistics-robot.png";
+import logisticsRobot from "@/assets/logistics-robot.png.png";
 
 const Dashboard = () => {
   const [speechBubble, setSpeechBubble] = useState<{
