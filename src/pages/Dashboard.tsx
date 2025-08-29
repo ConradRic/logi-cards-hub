@@ -89,48 +89,56 @@ const Dashboard = () => {
 
   return (
     <div className="organic-layout">
+      {/* Wave Borders */}
+      <div className="wave-border wave-top" />
+      <div className="wave-border wave-left" />
+      <div className="wave-border wave-right" />
+
       {/* Header */}
-      <div className="relative z-20 text-center pt-8 pb-4">
-        <h1 className="text-3xl font-bold text-primary mb-2">
+      <div className="relative z-20 text-center pt-16 pb-8">
+        <h1 className="text-4xl font-bold text-primary mb-3">
           Transport Management System - TMS
         </h1>
-        <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Plataforma completa para gestão logística e controle de frotas, armazém e funcionários !!!
         </p>
       </div>
 
-      {/* Main Content Area */}
-      <div className="content-area">
-        {/* Cards Grid */}
-        <div className="cards-grid relative z-20">
+      {/* Cards Container - Right Side */}
+      <div className="absolute right-32 top-1/2 transform -translate-y-32 z-20">
+        <div className="space-y-8">
           {/* Primeira fileira - 3 cards */}
-          {modules.slice(0, 3).map((module, index) => (
-            <OrganicCard
-              key={index}
-              title={module.title}
-              description={module.description}
-              icon={module.icon}
-              route={module.route}
-              onHover={handleCardHover}
-              onLeave={handleCardLeave}
-            />
-          ))}
+          <div className="flex gap-8">
+            {modules.slice(0, 3).map((module, index) => (
+              <OrganicCard
+                key={index}
+                title={module.title}
+                description={module.description}
+                icon={module.icon}
+                route={module.route}
+                onHover={handleCardHover}
+                onLeave={handleCardLeave}
+              />
+            ))}
+          </div>
           
           {/* Segunda fileira - 3 cards */}
-          {modules.slice(3, 6).map((module, index) => (
-            <OrganicCard
-              key={index + 3}
-              title={module.title}
-              description={module.description}
-              icon={module.icon}
-              route={module.route}
-              onHover={handleCardHover}
-              onLeave={handleCardLeave}
-            />
-          ))}
+          <div className="flex gap-8">
+            {modules.slice(3, 6).map((module, index) => (
+              <OrganicCard
+                key={index + 3}
+                title={module.title}
+                description={module.description}
+                icon={module.icon}
+                route={module.route}
+                onHover={handleCardHover}
+                onLeave={handleCardLeave}
+              />
+            ))}
+          </div>
           
           {/* Terceira fileira - 1 card centralizado */}
-          <div className="single-card">
+          <div className="flex justify-center">
             {modules.slice(6, 7).map((module, index) => (
               <OrganicCard
                 key={index + 6}
@@ -144,26 +152,26 @@ const Dashboard = () => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Person Illustration */}
-        <div className="absolute bottom-8 left-8 z-20">
-          <img 
-            src={logisticsRobot} 
-            alt="Nexus - Logistics Robot Assistant with safety equipment" 
-            className="w-64 h-64 object-contain"
-          />
-          
-          {/* Speech Bubble */}
-          {speechBubble.visible && (
-            <div className="absolute -top-16 left-20 z-30 animate-fade-in">
-              <div className="bg-white rounded-lg shadow-lg px-4 py-3 max-w-xs relative">
-                <div className="absolute bottom-0 left-8 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white transform translate-y-full"></div>
-                <h4 className="font-semibold text-primary text-sm mb-1">{speechBubble.title}</h4>
-                <p className="text-xs text-gray-600">{speechBubble.description}</p>
-              </div>
+      {/* Person Illustration */}
+      <div className="absolute bottom-16 left-8 z-20">
+        <img 
+          src={logisticsRobot} 
+          alt="Nexus - Logistics Robot Assistant with safety equipment" 
+          className="w-80 h-80 object-contain"
+        />
+        
+        {/* Speech Bubble */}
+        {speechBubble.visible && (
+          <div className="absolute -top-20 left-24 z-30 animate-fade-in">
+            <div className="bg-white rounded-lg shadow-lg px-4 py-3 max-w-xs relative">
+              <div className="absolute bottom-0 left-8 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white transform translate-y-full"></div>
+              <h4 className="font-semibold text-primary text-sm mb-1">{speechBubble.title}</h4>
+              <p className="text-xs text-gray-600">{speechBubble.description}</p>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
